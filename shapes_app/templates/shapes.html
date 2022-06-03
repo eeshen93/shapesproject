@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes</title>
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div class="nav">
+        <div class="container">
+            <div class="topnav">
+                <div class="logo" onclick="window.location.reload();"><img alt="logo" src="{% static 'img/code9_headerlogo.svg' %}"></div>
+                <a class="btn " href="{% url 'home' %}">HOME</a>
+                <a class="btn" href="{% url 'login' %}">ACCOUNT</a>
+                <a class="btn active" href="{% url 'shapes' %}">SHAPES</a>
+            </div>
+           
+
+        </div>
+    </div>
+    
+    <div class="sixthSection container" style="margin-top:140px;">
+        <h1 class="contact">
+            Add A Shape!
+        </h1>
+     
+        
+        <h2 id="editform" style="color:red;"></h2>
+        <div class="contact-wrapper">
+            <div id="form-wrapper">
+                <form method="POST" id="form">
+                   
+                    <h3>Square</h3>
+                    <input id='side1' name="side1" type="number" step="0.01" placeholder="Input a" required>cm <br><br>
+                    <div class="contact-foot-logo"><img alt="foot-logo" src="{% static 'img/square.JPG' %}"></div>
+                    <input id="shape_type" name="shape" value="square" hidden>
+                    <input id="request_type" name="shape" value="create" hidden>
+                    <input type="submit" name="Enter" id="submit">
+                </form>
+            </div>
+                
+            <div id="form2-wrapper">
+                <form method="POST" id="form2">
+                    <h3>Rectangle</h3>
+                    <input id='side1r' name="side1" type="number" step="0.01" placeholder="Input w" required>cm <br><br>
+                    <input id='side2r' name="side2" type="number" step="0.01" placeholder="Input l" required>cm <br><br>
+                    <div class="contact-foot-logo"><img alt="foot-logo" src="{% static 'img/rectangle.JPG' %}"></div>
+                    <input id="shape_typer" name="shape" value="rectangle" hidden>
+                    <input id="request_typer" name="shape" value="create" hidden>
+                    <input type="submit" name="Enter" id="submit">
+                </form>
+            </div>
+            <div id="form3-wrapper">  
+                <form method="POST" id="form3">
+                    <h3>Diamond</h3>
+                    <input id='side1d' name="side1" type="number" step="0.01" placeholder="Input a" required>cm <br><br>
+                    <input id='side2d' name="side2" type="number" step="0.01" placeholder="Input p" required>cm <br><br>
+                    <div class="contact-foot-logo"><img alt="foot-logo" src="{% static 'img/diamond.JPG' %}"></div>
+                    <input id="shape_typed" name="shape" value="diamond" hidden>
+                    <input id="request_typed" name="shape" value="create" hidden>
+                    <input type="submit" name="Enter" id="submit">
+                </form>
+            </div>
+            <div id="form4-wrapper">
+                <form method="POST" id="form4">
+                    <h3>Triangle</h3>
+                    <input id='side1t' name="side1" type="number" step="0.01" placeholder="Input a" required>cm <br><br>
+                    <input id='side2t' name="side2" type="number" step="0.01" placeholder="Input b" required>cm <br><br>
+                    <input id='side3t' name="side3" type="number" step="0.01" placeholder="Input c" required>cm <br><br>
+                    <div class="contact-foot-logo"><img alt="foot-logo" src="{% static 'img/triangle.JPG' %}"></div>
+                    <input id="shape_typet" name="shape" value="triangle" hidden>
+                    <input id="request_typet" name="shape" value="create" hidden>
+                    <input type="submit" name="Enter" id="submit">
+                </form>
+            </div>
+                <br>
+                <br>
+                <br>
+                <br>
+            
+            
+            
+        </div>
+
+        <div>
+                
+
+                
+            <h3>{{ request.user.username }}'s shapes</h3>
+            <table class="table table-bordered table-sm text-nowrap border-bottom" >
+                <thead>
+                    <tr>
+                        <th class="wd-15p">ID</th>
+                        <th></th>
+                        <th class="text-black" style="width: 100px;">Shape</th>
+                        <th class="text-black" style="width: 120px;">Area(cm sq)</th>
+                        <th class="text-black" style="width: 120px;">Perimeter(cm)</th>
+                        <th class="text-black" style="width: 230px;">Remarks</th>
+                    </tr>
+                </thead>
+            
+                    <tbody id="list-wrapper">   
+                    </tbody>
+                
+                    
+            </table>
+
+            
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+ 
+<script src="{% static 'js/index.js' %}"></script>
+
+</body>
+</html>

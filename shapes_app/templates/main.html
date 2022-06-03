@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes</title>
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div class="nav">
+        <div class="container">
+            <div class="topnav">
+                <div class="logo" onclick="window.location.reload();"><img alt="logo" src="{% static 'img/code9_headerlogo.svg' %}"></div>
+                <a class="btn active" href="{% url 'home' %}">HOME</a>
+                <a class="btn" href="{% url 'login' %}">ACCOUNT</a>
+                <a class="btn" href="{% url 'shapes' %}">SHAPES</a>
+            </div>
+            <div class="topnav-mobile">
+                <input type="submit" onclick="openNav();" class="topnav-mobile-mock-btn">
+                <div class="topnav-mobile-wrapper">
+                    <div class="hamburger hamburger-three"></div>
+                    <div class="logo-mobile-top" style="display: none;"><img alt="header1" src="{% static 'img/code9_logo_header1x.png' %}"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="firstSection">
+        <div class="container">
+            <div class="title">We focus on <span class="title-bold">Triangles, </span>
+                <span class="title-bold">Squares, </span><span class="title-bold">Rectangles</span> and <span class="title-bold">Diamonds.</span>
+            </div>
+            
+        </div>
+    </div>
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes</title>
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div class="nav">
+        <div class="container">
+            <div class="topnav">
+                <div class="logo" onclick="window.location.reload();"><img alt="logo" src="{% static 'img/code9_headerlogo.svg' %}"></div>
+                <a class="btn " href="{% url 'home' %}">HOME</a>
+                <a class="btn active" href="{% url 'login' %}">ACCOUNT</a>
+                <a class="btn" href="{% url 'shapes' %}">SHAPES</a>
+            </div>
+            <div class="topnav-mobile">
+                <input type="submit" onclick="openNav();" class="topnav-mobile-mock-btn">
+                <div class="topnav-mobile-wrapper">
+                    <div class="hamburger hamburger-three"></div>
+                    <div class="logo-mobile-top" style="display: none;"><img alt="header1" src="{% static 'img/code9_logo_header1x.png' %}"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="firstSection">
+        <div class="container">
+            <div class="career-wrapper" style="animation: 1.5s linear 0s 1 normal none running slideDown;">
+                    
+                <div class="career-title" style="color: white; ">Register</div>
+                <form action='/accounts/api/register/' method="POST" style="color:white;">
+                    {% csrf_token %}
+                    <input type="email" name="email" placeholder="Email"> <br>
+                    <input type="text" name="username" placeholder="Username"> <br>
+                    <input type="password" name="password" placeholder="Password"> <br>
+                    <input type="password" name="password2" placeholder="Confirm Password"> <br><br>
+                    <input type="submit" name="Create">
+                </form>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                        <h3 style="color: rgb(253, 181, 132);">{{ message }}</h3>
+                        {% elif message.tags == 'success' %}
+                        <h3 style="color: rgb(132, 253, 182);">{{ message }}</h3>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+            
+        </div>
+    </div>
+ 
+
+</body>
+</html>

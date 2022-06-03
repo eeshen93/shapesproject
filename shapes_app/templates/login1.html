@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes</title>
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div class="nav">
+        <div class="container">
+            <div class="topnav">
+                <div class="logo" onclick="window.location.reload();"><img alt="logo" src="{% static 'img/code9_headerlogo.svg' %}"></div>
+                <a class="btn " href="{% url 'home' %}">HOME</a>
+                <a class="btn active" href="{% url 'login' %}">ACCOUNT</a>
+                <a class="btn" href="{% url 'shapes' %}">SHAPES</a>
+            </div>
+            <div class="topnav-mobile">
+                <input type="submit" onclick="openNav();" class="topnav-mobile-mock-btn">
+                <div class="topnav-mobile-wrapper">
+                    <div class="hamburger hamburger-three"></div>
+                    <div class="logo-mobile-top" style="display: none;"><img alt="header1" src="{% static 'img/code9_logo_header1x.png' %}"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="firstSection">
+        <div class="container">
+            <div class="career-wrapper" style="animation: 1.5s linear 0s 1 normal none running slideDown;">
+                {% if request.user.is_authenticated %}   
+                <h1 style="color: white;">Welcome back {{ request.user.username }}!</h1>
+                <h3><a href="{% url 'logout' %}" style="color: white;">Logout Here</a></h3>
+                {% if messages %}
+                {% for message in messages %}
+                <h3 style="color: rgb(253, 181, 132);">{{ message }}</h3>
+                {% endfor %}
+                {% endif %}
+                {% else %}
+                <div class="career-title" style="color: white;">LOGIN</div>
+                <form action="{% url 'api_login' %}" method="POST">
+                    {% csrf_token %}
+                    
+                        <!--input name="email" type="email" placeholder="Email" required><br-->
+                        <input name="email" type="text" placeholder="Email" required><br>
+                        <input name="password" type="password" placeholder="Password" required><br><br>
+                        <input type="submit" name="Sign In"><br>
+                    
+                </form>
+                {% if messages %}
+                {% for message in messages %}
+                <h3 style="color: rgb(253, 181, 132);">{{ message }}</h3>
+                {% endfor %}
+                {% endif %}
+                
+                    <p style="color: white;">Login: test@test.com<p>
+                    <p style="color: white;">PW: test</p>
+                    <p><a href="{% url 'register' %}" style="color: white;">Create Another Account</a></p>
+                </ul>
+                {% endif %}
+            </div>
+            
+        </div>
+    </div>
+ 
+
+</body>
+</html>

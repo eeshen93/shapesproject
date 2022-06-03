@@ -1,0 +1,1 @@
+web: gunicorn shapes.wsgi --log-file -
