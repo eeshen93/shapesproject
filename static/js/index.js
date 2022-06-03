@@ -52,7 +52,7 @@
 
         }
 
-        var url = 'http://127.0.0.1:8000/api/shapes/'
+        var url = 'https://shapesproject.herokuapp.com/api/shapes/'
 
         fetch(url)
         .then((resp) => resp.json())
@@ -136,9 +136,9 @@
     form.addEventListener('submit', function(e){
         e.preventDefault()
         console.log('Form submitted')
-        var url = 'http://127.0.0.1:8000/api/create-shape/'
+        var url = 'https://shapesproject.herokuapp.com/api/create-shape/'
         if (activeItem != null){
-            var url = `http://127.0.0.1:8000/api/update-shape/${activeItem.id}/`
+            var url = `https://shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
             activeItem = null
         }
 
@@ -171,9 +171,9 @@
     form2.addEventListener('submit', function(e){
         e.preventDefault()
         console.log('Form submitted')
-        var url = 'http://127.0.0.1:8000/api/create-shape/'
+        var url = 'https://shapesproject.herokuapp.com/api/create-shape/'
         if (activeItem != null){
-            var url = `http://127.0.0.1:8000/api/update-shape/${activeItem.id}/`
+            var url = `https://shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
             activeItem = null
         }
 
@@ -205,9 +205,9 @@
     form3.addEventListener('submit', function(e){
         e.preventDefault()
         console.log('Form submitted')
-        var url = 'http://127.0.0.1:8000/api/create-shape/'
+        var url = 'https://shapesproject.herokuapp.com/api/create-shape/'
         if (activeItem != null){
-            var url = `http://127.0.0.1:8000/api/update-shape/${activeItem.id}/`
+            var url = `https://shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
             activeItem = null
         }
 
@@ -239,9 +239,9 @@
     form4.addEventListener('submit', function(e){
         e.preventDefault()
         console.log('Form submitted')
-        var url = 'http://127.0.0.1:8000/api/create-shape/'
+        var url = 'https://shapesproject.herokuapp.com/api/create-shape/'
         if (activeItem != null){
-            var url = `http://127.0.0.1:8000/api/update-shape/${activeItem.id}/`
+            var url = `https://shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
             activeItem = null
         }
 
@@ -311,7 +311,7 @@
 
     function deleteItem(item){
         console.log('Delete clicked')
-        fetch(`http://127.0.0.1:8000/api/delete-shape/${item.id}/`, {
+        fetch(`https://shapesproject.herokuapp.com/api/delete-shape/${item.id}/`, {
             method:'DELETE', 
             headers:{
                 'Content-type':'application/json',
