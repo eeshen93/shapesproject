@@ -27,7 +27,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 
 ALLOWED_HOSTS = ['https://shapesproject.herokuapp.com/','shapesproject.herokuapp.com']
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
 
 
 STATIC_URL='/static/'
