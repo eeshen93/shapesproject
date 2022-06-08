@@ -33,7 +33,7 @@
             <div class="career-wrapper" style="animation: 1.5s linear 0s 1 normal none running slideDown;">
                     
                 <div class="career-title" style="color: white; ">Register</div>
-                <form action='/accounts/api/register/' method="POST" style="color:white;">
+                <form action='/accounts/register/' method="POST" style="color:white;">
                     {% csrf_token %}
                     <input type="email" name="email" placeholder="Email"> <br>
                     <input type="text" name="username" placeholder="Username"> <br>

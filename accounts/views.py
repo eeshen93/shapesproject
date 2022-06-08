@@ -10,7 +10,48 @@ from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
+
 # Create your views here.
+
+
+class user_view(APIView):
+    def get(self,request):
+        user=customuser.objects.get(id=request.user.id)
+        serializer=UserSerializer(user)
+        return Response(serializer.data)
+    def post(self, request):
+        data= request.data
+        if 'username' in data.keys():
+            serializer=RegisterSerializer(data=data)
+            data={}
+            if serializer.is_valid():
+                user = serializer.save()
+                data['response']="New user created!"
+                data['email']=user.email
+                data['username']=user.username
+                token=Token.objects.get(user=user.id).key
+                data['token']=token
+                
+            else:
+                data=serializer.errors
+            return Response(data)
+
+        else:
+            user = authenticate(request, email=data['email'], password=data['password'])
+            data1={}  
+            if user is not None:
+                login(request, user)
+                token=Token.objects.get(user=user).key
+                data1['email']=user.email
+                data1['username']=user.username
+                data1['token']=token
+                
+            else:
+                data['error']='Login error, try again.'
+            return Response(data)
+
+
 
 
 @api_view(['GET'])

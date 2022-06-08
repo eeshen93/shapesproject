@@ -4,9 +4,9 @@ from . import views
 
 urlpatterns = [
     path('', views.apiOverview, name="api-overview"),
-    path('shapes/', views.api_shapes, name="api-shapes"),
-    path('create-shape/', views.api_create_shape, name="api-create"),
-    path('update-shape/<str:pk>/', views.api_update_shape, name="api-update"),
-    path('delete-shape/<str:pk>/', views.api_delete_shape, name="api-delete"),
+    path('shapes/', views.shapes_view.as_view(), name="api-shapes"),
+    path('create-shape/', views.shapes_view.as_view(), name="api-create"),
+    path('update-shape/<str:pk>/', views.shapes_view.as_view(), name="api-update"),
+    path('delete-shape/<str:pk>/', views.shapes_view.as_view(), name="api-delete"),
     
 ]

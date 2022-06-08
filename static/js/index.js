@@ -52,7 +52,7 @@
 
         }
 
-        var url = 'https://shapesproject.herokuapp.com/api/shapes/'
+        var url = 'shapesproject.herokuapp.com/api/shapes/'
 
         fetch(url)
         .then((resp) => resp.json())
@@ -136,10 +136,12 @@
     form.addEventListener('submit', function(e){
         e.preventDefault()
         console.log('Form submitted')
-        var url = 'https://shapesproject.herokuapp.com/api/create-shape/'
+        var reqtype="POST"
+        var url = 'shapesproject.herokuapp.com/api/create-shape/'
         if (activeItem != null){
-            var url = `https://shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
+            var url = `shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
             activeItem = null
+            var reqtype='PUT'
         }
 
         var shape_type = document.getElementById('shape_type').value
@@ -152,7 +154,7 @@
         
 
         fetch(url, {
-            method:'POST',
+            method: reqtype,
             headers:{
                 'Content-type':'application/json',
                 'X-CSRFToken':csrftoken,
@@ -171,10 +173,12 @@
     form2.addEventListener('submit', function(e){
         e.preventDefault()
         console.log('Form submitted')
-        var url = 'https://shapesproject.herokuapp.com/api/create-shape/'
+        var url = 'shapesproject.herokuapp.com/api/create-shape/'
+        var reqtype='POST'
         if (activeItem != null){
-            var url = `https://shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
+            var url = `shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
             activeItem = null
+            var reqtype='PUT'
         }
 
         var shape_type = document.getElementById('shape_typer').value
@@ -187,7 +191,7 @@
         
         console.log(side1)
         fetch(url, {
-            method:'POST',
+            method: reqtype,
             headers:{
                 'Content-type':'application/json',
                 'X-CSRFToken':csrftoken,
@@ -205,10 +209,12 @@
     form3.addEventListener('submit', function(e){
         e.preventDefault()
         console.log('Form submitted')
-        var url = 'https://shapesproject.herokuapp.com/api/create-shape/'
+        var url = 'shapesproject.herokuapp.com/api/create-shape/'
+        var reqtype='POST'
         if (activeItem != null){
-            var url = `https://shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
+            var url = `shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
             activeItem = null
+            var reqtype='PUT'
         }
 
         var shape_type = document.getElementById('shape_typed').value
@@ -221,7 +227,7 @@
         
 
         fetch(url, {
-            method:'POST',
+            method: reqtype,
             headers:{
                 'Content-type':'application/json',
                 'X-CSRFToken':csrftoken,
@@ -239,10 +245,12 @@
     form4.addEventListener('submit', function(e){
         e.preventDefault()
         console.log('Form submitted')
-        var url = 'https://shapesproject.herokuapp.com/api/create-shape/'
+        var url = 'shapesproject.herokuapp.com/api/create-shape/'
+        var reqtype='POST'
         if (activeItem != null){
-            var url = `https://shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
+            var url = `shapesproject.herokuapp.com/api/update-shape/${activeItem.id}/`
             activeItem = null
+            var reqtype='PUT'
         }
 
         var shape_type = document.getElementById('shape_typet').value
@@ -255,7 +263,7 @@
         
 
         fetch(url, {
-            method:'POST',
+            method: reqtype,
             headers:{
                 'Content-type':'application/json',
                 'X-CSRFToken':csrftoken,
@@ -311,7 +319,7 @@
 
     function deleteItem(item){
         console.log('Delete clicked')
-        fetch(`https://shapesproject.herokuapp.com/api/delete-shape/${item.id}/`, {
+        fetch(`shapesproject.herokuapp.com/api/delete-shape/${item.id}/`, {
             method:'DELETE', 
             headers:{
                 'Content-type':'application/json',
