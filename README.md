@@ -34,11 +34,11 @@ Accounts
   - Created a customuser model that inherits AbstractUser. (email as username)
   - For simplicity, no email activation needed. The account is automatically set to is_active on successful
     registration.
-  - 3 FBV for getting user details, registration and login.
+  - CBV for getting user details, registration and login.
  
 API
   - 1 model for storing shapes data with user foreign key.
-  - FBVs to get, create, update and delete shapes assigned to user.
+  - CBVs to get, create, update and delete shapes assigned to user.
     - Different properties are collected for different shapes.
     - Includes conditions that flags error in shapes creation/updates.
     	eg: Sum of 2 sides of a triangle must be greater than the 3rd side.
